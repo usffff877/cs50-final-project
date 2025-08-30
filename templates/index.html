@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="card shadow p-4">
+  <h2 class="mb-3">Search Word</h2>
+  <form method="POST">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" name="word" placeholder="Enter English word" required>
+      <button class="btn btn-primary" type="submit">Translate</button>
+    </div>
+  </form>
+
+  {% if word %}
+    <div class="alert alert-info">
+      <strong>{{ word }}</strong> → {{ meaning }}
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

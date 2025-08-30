@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="card shadow p-4">
+  <h2 class="mb-3">Search History</h2>
+
+  {% if history %}
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>Meaning</th>
+          <th>Timestamp</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in history %}
+          <tr>
+            <td>{{ row['word'] }}</td>
+            <td>{{ row['meaning'] }}</td>
+            <td>{{ row['timestamp'] }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p class="text-muted">No history yet.</p>
+  {% endif %}
+</div>
+{% endblock %}
